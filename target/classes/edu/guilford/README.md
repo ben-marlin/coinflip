@@ -110,7 +110,6 @@ private JLabel coinLabel;
 private ImageIcon headIcon;
 private ImageIcon tailIcon;
 private Random random;
-
 ```
 Remember from the dice & card classes that we had fields that were accessible to all the methods of the class. These operate like that.
 
@@ -145,7 +144,7 @@ if (random.nextBoolean()) {
 ```
 The method nextBoolean() produce either a `true` or a `false`. This code changes the icon for coinLabel to headIcon if it turns up true and tailIcon if it turns up false.
 
-## Imports
+## Imports 
 
 If you've run across anything that can't resolve as you went along, you may need to add some of the following import statements. Remember that these go after your name, but before the class header.
 ```
