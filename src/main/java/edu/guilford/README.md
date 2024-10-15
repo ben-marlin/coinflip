@@ -25,7 +25,7 @@ Notice that I put these files in a folder called `resources`. This is considered
 
 ## Build the JFrame
 
-You will recall from the JFrame drawing project how to get started. If not, open that project repo in a browser window so you can look back at it.
+You should recall from the JFrame drawing project how to get started. If not, open that project repo in a browser window so you can look back at it.
 
 Start by creating a class: File > New File > Java File > Class > CoinFlip. As some of us have learned the hard way, don't type the .java - let the computer supply that part! 
 
@@ -50,7 +50,7 @@ public CoinFlip() {
 As before, we'll need a `main` just to instantiate the JFrame. There's nothing fancy about this, so you can copy the one from the drawing project verbatim or copy it from here. It needs to be inside the CoinFlip class, but after the CoinFlip constructor.
 ```
 public static void main(String[] args) {
-    JFrameGraphics frame = new JFrameGraphics();
+    JFrame frame = new CoinFlip();
     frame.setVisible(true);
 }
 ```
@@ -78,14 +78,17 @@ Here we have added a `BorderLayout`. This has five subdivisions or "panes". Thes
 
 There are plenty of other Layouts, including BoxLayout, CardLayout, FlowLayout, GridBagLayout, GridLayout, and SpringLayout. We will discuss these as needed, but if you want to know more, Google is a good resource.
 
-## Adding the JButton
+## Making resources global
 
-We're going to use a button to issue the command to flip the coin. To add a simple button, use the following code. Add it to the CoinFlip constructor before the code that creates the JPanel.
+Just under the signature for the class - before the constructor - add the following.
 ```
-// Create button and add action listener
-JButton flipButton = new JButton("Flip Coin");
+private JLabel coinLabel;
+private ImageIcon headIcon;
+private ImageIcon tailIcon;
+private Random random;
+private JButton flipButton;
 ```
-And now, on the line after the Layout was set, add a line that says `panel.add(flipButton, BorderLayout.SOUTH);`. Now, when you test the program, it should show a button at the bottom, and it will be the width of the window.
+Remember from the dice & card classes that we had fields that were accessible to all the methods of the class. These operate like that.
 
 ## Adding a picture of the coin
 
@@ -102,16 +105,14 @@ Now, after the line where you added the button to the panel, add one that says `
 
 If you test your program at this point, it will give you errors because we forgot to declare headIcon, tailIcon, and coinLabel! This was strategic, as we're pulling a trick.
 
-## Making resources global
+## Adding the JButton
 
-Just under the signature for the class - before the constructor - add the following.
+We're going to use a button to issue the command to flip the coin. To add a simple button, use the following code. Add it to the CoinFlip constructor before the code that creates the JPanel.
 ```
-private JLabel coinLabel;
-private ImageIcon headIcon;
-private ImageIcon tailIcon;
-private Random random;
+// Create button and add action listener
+flipButton = new JButton("Flip Coin");
 ```
-Remember from the dice & card classes that we had fields that were accessible to all the methods of the class. These operate like that.
+And now, on the line after the Layout was set, add a line that says `panel.add(flipButton, BorderLayout.SOUTH);`. Now, when you test the program, it should show a button at the bottom, and it will be the width of the window.
 
 With this addition, you should be able to test your code, and it should display the head of a coin. There's a button, but it doesn't do anything. Let's fix that.
 

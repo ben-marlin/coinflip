@@ -25,7 +25,7 @@ Notice that I put these files in a folder called `resources`. This is considered
 
 ## Build the JFrame
 
-You will recall from the JFrame drawing project how to get started. If not, open that project repo in a browser window so you can look back at it.
+You should recall from the JFrame drawing project how to get started. If not, open that project repo in a browser window so you can look back at it.
 
 Start by creating a class: File > New File > Java File > Class > CoinFlip. As some of us have learned the hard way, don't type the .java - let the computer supply that part! 
 
@@ -50,7 +50,7 @@ public CoinFlip() {
 As before, we'll need a `main` just to instantiate the JFrame. There's nothing fancy about this, so you can copy the one from the drawing project verbatim or copy it from here. It needs to be inside the CoinFlip class, but after the CoinFlip constructor.
 ```
 public static void main(String[] args) {
-    JFrameGraphics frame = new JFrameGraphics();
+    JFrame frame = new CoinFlip();
     frame.setVisible(true);
 }
 ```
