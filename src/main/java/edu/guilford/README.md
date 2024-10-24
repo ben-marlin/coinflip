@@ -37,6 +37,9 @@ Now add a constructor. You can copy the one from your previous project and modif
 ```
 public CoinFlip() {
 
+    // instantiate the randomizer for later
+    random = new Random();
+
     // set up the frame
     setTitle("Coin Flipper");
     setSize(350, 350); 
