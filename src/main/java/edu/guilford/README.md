@@ -1,6 +1,6 @@
 # Flipping a Coin
 
-## Sample Code
+## Sample code
 
 When you run the sample code, it will prompt you to call a coin as heads or tails. Then it flips the coin and tells you whether you won (matched) or lost. 
 
@@ -15,21 +15,26 @@ Looking at the code, you'll see a number of things that are less than desirable 
 
 In the days of DOS & mainframes, text entry was what we had. But in modern computing, you expect to have a window and a visual representation. It should be intuitive and easily repeatable. So let's build one.
 
-## Images
-
-First notice that I dropped two png files into your repo. They are titled head.png and tail.png. You won't be surprised by what they are, but click on them to see that VSCode can display them for you.
-
-It is entirely possible you won't like those images. If that is the case, you can visit a website like images.google.com or shutterstock.com or clipart.com and find replacements. If your file is named something different, you will need to adjust the code that mentions these.
-
-Notice that I put these files in a folder called `resources`. This is considered good practice in Java programming with projects. You may see example code that places image files in the same folder as the program you're writing, but I've had some difficulty making relative path names work.
-
-## Build the JFrame
+## Create the class
 
 You should recall from the JFrame drawing project how to get started. If not, open that project repo in a browser window so you can look back at it.
 
 Start by creating a class: File > New File > Java File > Class > CoinFlip. As some of us have learned the hard way, don't type the .java - let the computer supply that part! 
 
 The result should be a file that supplies you with `public class CoinFlip` at the top and nothing else. Add the `package edu.guilford;` line at the top, followed by the comments for your name. At later points, VSCode should add import statements for your use of Random, JFrame, etc., but if it doesn't you may need to return here.
+
+## The imports
+
+Here's the collection of imports that I needed.
+```
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Random;
+```
+
+## Base class modifications
 
 Modify your header for the class as in the previous: `public class CoinFlip extends JFrame`. This should add the import statement, automatically, but if it doesn't, add `import javax.swing.JPanel;`
 
@@ -59,7 +64,7 @@ public static void main(String[] args) {
 ```
 This is the bare minimum for testing. Run your code and you should get a JFrame window. Remember that this is our strategy: get one piece to work before adding another... build it one piece at a time!
 
-## Add the JPanel
+## Add the panel
 
 In the previous project, we wanted to draw shapes onto our JPanel, so we had to be a little fancy. This time, we'll be able to use a standard JPanel, but we're going to take advantage of some of the features of the component.
 
@@ -92,6 +97,14 @@ private Random random;
 private JButton flipButton;
 ```
 Remember from the dice & card classes that we had fields that were accessible to all the methods of the class. These operate like that.
+
+## Images
+
+Notice that I dropped two png files into your repo. They are titled head.png and tail.png. You won't be surprised by what they are, but click on them to see that VSCode can display them for you.
+
+It is entirely possible you won't like those images. If that is the case, you can visit a website like images.google.com or shutterstock.com or clipart.com and find replacements. If your file is named something different, you will need to adjust the code that mentions these.
+
+Notice that I put these files in a folder called `resources`. This is considered good practice in Java programming with projects. You may see example code that places image files in the same folder as the program you're writing, but I've had some difficulty making relative path names work.
 
 ## Adding a picture of the coin
 
