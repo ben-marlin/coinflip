@@ -50,6 +50,9 @@ public CoinFlip() {
     setSize(350, 350); 
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
     setLocationRelativeTo(null);
+
+    // keep this as last line in constructor
+    setVisible(true);
 }
 ```
 
@@ -58,8 +61,7 @@ public CoinFlip() {
 As before, we'll need a `main` just to instantiate the JFrame. There's nothing fancy about this, so you can copy the one from the drawing project verbatim or copy it from here. It needs to be inside the CoinFlip class, but after the CoinFlip constructor.
 ```
 public static void main(String[] args) {
-    JFrame frame = new CoinFlip();
-    frame.setVisible(true);
+    new CoinFlip();
 }
 ```
 This is the bare minimum for testing. Run your code and you should get a JFrame window. Remember that this is our strategy: get one piece to work before adding another... build it one piece at a time!
@@ -163,19 +165,9 @@ if (random.nextBoolean()) {
     coinLabel.setIcon(tailIcon);
 }
 ```
-The method nextBoolean() produce either a `true` or a `false`. This code changes the icon for coinLabel to headIcon if it turns up true and tailIcon if it turns up false.
+The method nextBoolean() produce either a `true` or a `false`. This code changes the icon for coinLabel to headIcon if it turns up true and tailIcon if it turns up false. 
 
-## Imports 
-
-If you've run across anything that can't resolve as you went along, you may need to add some of the following import statements. Remember that these go after your name, but before the class header.
-```
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.Random;
-```
-My VSCode installation does a pretty good job of adding these as necessary, but a few people have had instances where it didn't add the needed import - or worse, it picked something different with a similar name!
+**Note:** We want to randomize this because we are simulating a coin flip. If, however, you had wanted to alternate between heads & tails, you would instead determine `if (coinLabel.getIcon() == headIcon)` and in this case, `coinLabel.setIcon(tailIcon)` and use `else` to `coinLabel.setIcon(headIcon)`!
 
 ## Testing
 
