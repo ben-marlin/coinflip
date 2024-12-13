@@ -80,7 +80,7 @@ add(panel);
 ```
 Test this to make sure it works. It shouldn't do anything new but change the background color. 
 
-A JPanel is a type of object we call a "container". We put other objects in it, and it handles how to lay them out. If you do nothing with the layout, then the `setLayout` line is unnecessary. While this will work, it means your components will move around unpredictably when the window is resized. Best to learn how to use these early and make neat apps.
+A JPanel is a type of object we call a "container". We put other objects in it, and it handles how to lay them out. If you do nothing with the layout, then the `setLayout` line is unnecessary. While this may work, it means your components will move around unpredictably when the window is resized, depending on the default layout (this used to be something called `FlowLayout`, but may have changed). Best to learn how to use these early and make neat apps.
 
 Here we have added a `BorderLayout`. This has five subdivisions or "panes". These are `BorderLayout.CENTER`, `BorderLayout.NORTH`, `BorderLayout.SOUTH`, `BorderLayout.EAST`, and `BorderLayout.WEST`. Secretly, those names hide integers, but nobody memorizes those because the locations are intuitive (if you're used to having north be up on your maps).
 
@@ -104,7 +104,7 @@ Notice that I dropped two png files into your repo. They are titled head.png and
 
 It is entirely possible you won't like those images. If that is the case, you can visit a website like images.google.com or shutterstock.com or clipart.com and find replacements. If your file is named something different, you will need to adjust the code that mentions these.
 
-Notice that I put these files in a folder called `resources`. This is considered good practice in Java programming with projects. You may see example code that places image files in the same folder as the program you're writing, but I've had some difficulty making relative path names work.
+Notice that I put these files in a folder called `resources`. This is considered good practice in Java programming with projects. You may see example code that places image files in the same folder as the program you're writing, but I've had some difficulty making relative path names work like this.
 
 ## Adding a picture of the coin
 
@@ -116,6 +116,10 @@ tailIcon = new ImageIcon("src/main/resources/tail.png");
 coinLabel = new JLabel(headIcon);
 ```
 Look at the name of the file and compare to the folder structure in your Explorer. All your programming stuff is in the `src` folder and in particular your program is in `src/main/java/edu/guilford`. But back in `main` there was a fork that went instead to `src/main/resources`. If you put your extra files in `resources` all the time, it will be easier to keep track of.
+
+**Important:** The name of the folder is `resources` NOT `resource`. While using path names in this format, the difference is unimportant. In a later lesson, we will use language default behavior, so you have to spell things the way Java expects.
+
+**Important:** One dodge if you have difficulties here is to navigate to the file on your computer and use *Get Info* on a Mac or *Properties* on Windows to find the absolute path. While this will work on *your* machine, it will absolutely foul things up on my machine. This is because, while your project is saved in something like `C:/Users/ImaStudent/CTIS210/githubclassroom/Project83/`, I will clone your repos en masse and have a path like `c:/Users/benmarlin/Documents/CTIS210/Project83/ImaStudent`. We have a way around this later, but for now, stick with our relative path solution.
 
 Now, after the line where you added the button to the panel, add one that says `panel.add(coinLabel, BorderLayout.CENTER);`. This means you've created an ImageIcon for each picture of the coin, then created the coinLabel with one of the pictures, and finally added it to the JPanel.
 
